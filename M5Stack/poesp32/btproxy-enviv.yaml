@@ -30,6 +30,7 @@ api:
 
 ota:
   - platform: esphome
+    id: ota_esphome
 
 web_server:
   port: 80
