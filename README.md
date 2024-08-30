@@ -10,6 +10,7 @@ packages:
   #thewave1408.PoESP32-enviv: github://thewave1408/ESPHome/M5Stack/PoESP32-enviv.yaml@latest
   #thewave1408.PoESP32-btproxy-enviv: github://thewave1408/ESPHome/M5Stack/PoESP32-btproxy-enviv.yaml@latest
   #thewave1408.atomlite-enviv: github://thewave1408/ESPHome/M5Stack/atomlite-enviv.yaml@latest
+  #thewave1408.etekcity-esw01: github://thewave1408/ESPHome/etekcity/esw01.yaml@latest
 
 esphome:
   name: ${name}
