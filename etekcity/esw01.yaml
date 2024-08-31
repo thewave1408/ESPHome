@@ -1,7 +1,7 @@
 substitutions:
   name: etekcity_esw01
   friendly_name: ETekCity ESW01
-  version: "0.0.2"
+  version: "0.0.3"
 
 esphome:
   name: ${name}
@@ -11,10 +11,12 @@ esphome:
   project:
     name: "thewave1408.etekcity-esw01"
     version: "${version}"
-  platform: ESP8266
-  board: esp01_1m
   # esp8266_restore_from_flash: true
   # Can cause reduced flash lifetime due to frequent writes, enable as needed
+
+esp8266:
+  board: esp01_1m
+  early_pin_init: False
 
 wifi:
   ssid: !secret wifi_ssid
@@ -35,6 +37,7 @@ dashboard_import:
   # Can cause high memory usage on ESP8266, enable as needed
 
 logger:
+  level: INFO
   # https://esphome.io/components/logger
 
 api:
@@ -49,15 +52,18 @@ ota:
 time:
   - platform: homeassistant
 
+# Wi-Fi Link Status LED (Blue)
 status_led:
   pin:
     number: GPIO5
 
+# Outlet State LED (Yellow)
 output:
   - platform: gpio
     id: led1
     pin: GPIO16
 
+# Outlet Relay Button
 switch:
   - platform: gpio
     name: "${friendly_name}"
@@ -71,6 +77,7 @@ switch:
   - platform: restart
     name: "Restart"
 
+# Outlet Relay Toggle When Button Pushed
 binary_sensor:
   - platform: status
     name: "Status"
