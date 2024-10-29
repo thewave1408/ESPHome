@@ -1,0 +1,43 @@
+servo:
+  - id: my_servo
+    output: servo_output
+    auto_detach_time: 3s
+    transition_length: 2s
+
+output:
+  - platform: ledc
+    id: servo_output
+    pin: GPIO13
+    frequency: 50 Hz
+
+number:
+  - platform: template
+    name: Servo Control
+    id: servo_number
+    min_value: -100
+    initial_value: 0
+    max_value: 100
+    step: 10
+    optimistic: true
+    set_action:
+      then:
+        - servo.write:
+            id: my_servo
+            level: !lambda 'return x / 100.0;'
+
+button:
+  - platform: template
+    name: 'Servo Right'
+    id: move_right
+    on_press:
+      - number.increment:
+         id: servo_number
+         cycle: false  
+
+  - platform: template
+    name: 'Servo Left'
+    id: move_left
+    on_press:
+      - number.decrement:
+         id: servo_number
+         cycle: false 
