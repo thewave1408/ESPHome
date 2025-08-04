@@ -1,7 +1,7 @@
 substitutions:
   name: poesp32-multi
   friendly_name: PoESP32 BT & Temp
-  version:  "0.1.5"
+  version:  "0.1.7"
 
 esphome:
   name: "${name}"
