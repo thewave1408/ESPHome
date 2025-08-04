@@ -22,8 +22,8 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: "${friendly_name} IP Address"
-    # ssid:
-    #   name: "SSID"
+    ssid:
+       name: "SSID"
   - platform: template
     name: "Uptime"
     lambda: |-
@@ -48,5 +48,5 @@ text_sensor:
       return {buffer};
     icon: mdi:clock-start
     update_interval: 60s
-    # disabled_by_default: true
+    disabled_by_default: true
     entity_category: diagnostic
