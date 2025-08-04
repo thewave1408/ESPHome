@@ -12,6 +12,7 @@ sensor:
     name: "Uptime seconds"
     id: uptime_s
     update_interval: 60s
+    disabled_by_default: true
 
 button:
   - platform: restart
@@ -48,5 +49,4 @@ text_sensor:
       return {buffer};
     icon: mdi:clock-start
     update_interval: 60s
-    disabled_by_default: true
     entity_category: diagnostic
